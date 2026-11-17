@@ -1,0 +1,20 @@
+# Local engine prepared by tooling/ios/prepare-engine.sh (never in git)
+app/ios/Engine/
+app/ios/Pods/
+app/ios/.symlinks/
+
+# Build outputs
+app/build/
+app/.dart_tool/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/.packages
+app/pubspec.lock
+
+# macOS / IDE
+.DS_Store
+.idea/
+.vscode/
+
+# Engine caches
+runtime/ish-cache/
