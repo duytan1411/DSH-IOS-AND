@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: macos-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
 
     steps:
       - name: Checkout repository
@@ -19,6 +19,10 @@ jobs:
         with:
           flutter-version: '3.47.7'
           channel: 'stable'
+          cache: true
+
+      - name: Flutter precache iOS
+        run: flutter precache --ios
 
       - name: Get Flutter dependencies
         run: |
@@ -32,7 +36,6 @@ jobs:
 
       - name: Package unsigned IPA
         run: |
-          # Find the Runner.app directory
           APP_PATH=$(find app/build/ios -name "Runner.app" -type d | head -1)
           if [ -z "$APP_PATH" ]; then
             echo "❌ Runner.app not found"
